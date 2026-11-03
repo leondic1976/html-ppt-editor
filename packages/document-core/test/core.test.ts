@@ -141,6 +141,15 @@ describe('commands and history', () => {
     return { doc: r.doc, slideId, a, b };
   };
 
+  it('a patch cannot reach Object.prototype', () => {
+    const { doc, slideId, a } = setup();
+    const patch = JSON.parse(
+      '{"__proto__":{"polluted":1},"constructor":{"prototype":{"polluted":1}}}',
+    );
+    applyCommands(doc, [{ type: 'element.update', slideId, elementId: a.id, patch }]);
+    expect(({} as Record<string, unknown>).polluted).toBeUndefined();
+  });
+
   it('undoes and redoes through patches, including z-order', () => {
     const { doc, slideId, a } = setup();
     const r = applyCommands(doc, [

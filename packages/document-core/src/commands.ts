@@ -45,6 +45,8 @@ function slideOf(doc: DeckDocument, id: string): Slide {
 
 function deepMerge(target: Record<string, unknown>, patch: ElementPatch): void {
   for (const [key, value] of Object.entries(patch)) {
+    // JSON.parse makes "__proto__" an own key, so a patch from a file could otherwise reach Object.prototype.
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
     const cur = target[key];
     if (
       value &&

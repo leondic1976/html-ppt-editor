@@ -72,10 +72,42 @@ export function sniffImage(b: Uint8Array): ImageKind | null {
     if (brand === 'avif' || brand === 'avis') return 'avif';
   }
   if (eq(b, [0x42, 0x4d])) return 'bmp';
-  const head = new TextDecoder('utf-8', { fatal: false }).decode(b.subarray(0, 1024)).trimStart();
-  if (/^(<\?xml[^>]*>\s*)?(<!--[\s\S]*?-->\s*)*(<!doctype svg[^>]*>\s*)?<svg[\s>]/i.test(head))
-    return 'svg';
-  return null;
+  const head = new TextDecoder('utf-8', { fatal: false }).decode(b.subarray(0, 1024));
+  return startsLikeSvg(head) ? 'svg' : null;
+}
+
+/**
+ * Prolog, comments and doctype, then `<svg`. Hand-written because this reads untrusted bytes on the
+ * main thread: the equivalent regex backtracks exponentially on repeated `--><!--`, so a file of a
+ * few hundred bytes could hang the tab. This is one forward pass.
+ */
+function startsLikeSvg(head: string): boolean {
+  const s = head.toLowerCase();
+  let i = 0;
+  const skipSpace = (): void => {
+    while (i < s.length && /\s/.test(s[i]!)) i++;
+  };
+  /** Moves past the next occurrence of `end`; false when there is none. */
+  const skipPast = (end: string, from: number): boolean => {
+    const at = s.indexOf(end, from);
+    if (at < 0) return false;
+    i = at + end.length;
+    return true;
+  };
+  skipSpace();
+  if (s.startsWith('<?xml', i)) {
+    if (!skipPast('>', i)) return false;
+    skipSpace();
+  }
+  while (s.startsWith('<!--', i)) {
+    if (!skipPast('-->', i + 4)) return false;
+    skipSpace();
+  }
+  if (s.startsWith('<!doctype svg', i)) {
+    if (!skipPast('>', i)) return false;
+    skipSpace();
+  }
+  return s.startsWith('<svg', i) && i + 4 < s.length && /[\s>]/.test(s[i + 4]!);
 }
 
 export const DANGEROUS_EXTENSIONS =

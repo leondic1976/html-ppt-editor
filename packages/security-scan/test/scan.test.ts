@@ -355,6 +355,21 @@ describe('image checks', () => {
     expect(sniffImage(png)).toBe('png');
     expect(sniffImage(enc('<svg xmlns="x"></svg>'))).toBe('svg');
     expect(sniffImage(enc('hello'))).toBeNull();
+    expect(
+      sniffImage(enc('\n<?xml version="1.0"?>\n<!-- a --> <!-- b -->\n<!DOCTYPE svg x>\n<SVG>')),
+    ).toBe('svg');
+    expect(sniffImage(enc('<svgfoo>'))).toBeNull();
+    expect(sniffImage(enc('<svg'))).toBeNull();
+    expect(sniffImage(enc('<!-- never closed <svg>'))).toBeNull();
+    expect(sniffImage(enc('<html><svg></svg></html>'))).toBeNull();
+  });
+
+  it('cannot be hung by a crafted file', () => {
+    // Took 4.8s at 28 repeats with the old regex, about 20 times longer per 4 more. This is 145.
+    const attack = enc(`<!--${'--><!--'.repeat(145)}x`);
+    const started = performance.now();
+    expect(sniffImage(attack)).toBeNull();
+    expect(performance.now() - started).toBeLessThan(100);
   });
   it('rejects an executable posing as an image', () => {
     const r = scanImageFile(fakePe(), { declaredMime: 'image/png' });

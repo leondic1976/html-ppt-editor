@@ -90,7 +90,7 @@ describe('single-file HTML', () => {
     const { doc, assets } = await sampleDeck();
     const { html } = await buildDeckHtml(doc, assets);
     expect(html).not.toContain('<script>alert');
-    expect(html.match(/<script[\s>]/g)).toHaveLength(3);
+    expect(html.match(/<script[\s>]/gi)).toHaveLength(3);
     expect(html.match(/<\/script>/g)).toHaveLength(3);
   });
 

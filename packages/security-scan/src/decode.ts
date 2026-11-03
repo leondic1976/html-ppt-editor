@@ -7,7 +7,7 @@ export interface DecodedHtml {
   lossy: boolean;
 }
 
-const META_CHARSET = /<meta[^>]{0,200}?charset\s*=\s*["']?\s*([a-zA-Z0-9_:.-]{1,40})/i;
+const META_CHARSET = /<meta[^>]{0,200}?charset\s{0,8}=\s{0,8}["']?\s{0,8}([a-zA-Z0-9_:.-]{1,40})/i;
 
 function tryDecode(bytes: Uint8Array, label: string, fatal: boolean): string | null {
   try {
