@@ -6,6 +6,8 @@ Open an HTML presentation in your browser, fix its text and pictures, and save i
 
 [한국어](README.ko.md)
 
+**Try it:** https://leondic1976.github.io/html-ppt-editor/ (static page; your files stay in your browser and are not uploaded)
+
 ## What it does
 
 - **Edit existing HTML (L1):** text, pictures and some formatting. Everything you didn't touch stays byte-identical to the original.

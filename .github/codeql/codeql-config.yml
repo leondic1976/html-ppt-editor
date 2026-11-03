@@ -1,0 +1,4 @@
+# Fixtures are test input, including deliberately malicious samples. Findings there are not findings
+# about this project's code. Generated decks embed the runtime, which is analysed from its source.
+paths-ignore:
+  - fixtures/**
