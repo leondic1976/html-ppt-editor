@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>스크립트 생성</title></head>
+<body><div id="app"></div>
+<script>
+const slides = [{ title: '내용이 스크립트 안에만 있음', body: '정적 분석으로는 슬라이드가 보이지 않습니다.' }, { title: '둘째', body: '본문' }];
+const app = document.getElementById('app');
+app.innerHTML = slides.map((s) => '<section><h1>' + s.title + '</h1><p>' + s.body + '</p></section>').join('');
+/* padding so the script is recognised as substantial */
+/* padding so the script is recognised as substantial */
+/* padding so the script is recognised as substantial */
+/* padding so the script is recognised as substantial */
+
+</script></body></html>

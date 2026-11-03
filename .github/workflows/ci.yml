@@ -1,0 +1,73 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: node scripts/check-boundaries.mjs
+      - run: pnpm test:coverage
+      - run: node scripts/check-licenses.mjs
+      - run: pnpm audit --prod --audit-level high
+      - run: pnpm build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: artifacts/sbom.json
+
+  e2e:
+    # Windows with Chrome and Edge is the stated target environment.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test:e2e --update-snapshots=none
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: ${{ runner.temp }}/hps-e2e-results
+
+  pptx-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pnpm install --frozen-lockfile
+      - run: pip install python-pptx==1.0.2
+      - run: pnpm poc:pptx
+      - run: python scripts/verify_pptx.py artifacts/poc-b/poc-b.pptx --slides 3 --notes "발표자 노트"
+      - name: LibreOffice smoke test (does not prove PowerPoint compatibility)
+        run: |
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice-impress
+          soffice --headless --convert-to pdf --outdir artifacts/poc-b artifacts/poc-b/poc-b.pptx
+          test -s artifacts/poc-b/poc-b.pdf

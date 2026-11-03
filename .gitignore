@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+playwright-report/
+test-results/
+.venv/
+.vite/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+# PowerPoint lock files and generated verification output
+~$*
+artifacts/

@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": { "@hps/*": ["./packages/*/src/index.ts"] },
+    "types": ["node", "vite/client"]
+  },
+  "include": ["packages/*/src", "apps/*/src", "packages/*/test", "e2e", "*.ts"]
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>JS 전환 발표</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; font-family: 'Noto Sans KR', sans-serif; }
+  .deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  .slide { display: none; position: absolute; inset: 0; padding: 80px; flex-direction: column; justify-content: center; background: #0f172a; color: #f1f5f9; animation: fadeIn .6s both; }
+  .slide.active { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  h1 { font-size: 72px; margin: 0 0 24px; }
+  p { font-size: 32px; margin: 0; }
+  .nav { position: fixed; bottom: 16px; right: 24px; color: #94a3b8; }
+  canvas { width: 800px !important; height: 400px !important; background: #1e293b; }
+</style>
+</head>
+<body>
+<div class="deck">
+  <section class="slide active"><h1>첫 슬라이드</h1><p>JS로 넘어가는 발표입니다.</p></section>
+  <section class="slide"><h1>둘째 슬라이드</h1><p>화면에 안 보이던 내용도 고칠 수 있어야 합니다.</p></section>
+  <section class="slide"><h1>차트 슬라이드</h1><canvas id="chart"></canvas></section>
+  <section class="slide"><h1>마지막</h1><p>감사합니다.</p><img src="photo-local.png" alt="없는 사진"></section>
+</div>
+<div class="nav" id="nav">1 / 4</div>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  function show(i) {
+    slides.forEach((s, n) => s.classList.toggle('active', n === i));
+    document.getElementById('nav').textContent = (i + 1) + ' / ' + slides.length;
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { current = Math.min(current + 1, slides.length - 1); show(current); }
+    if (e.key === 'ArrowLeft') { current = Math.max(current - 1, 0); show(current); }
+  });
+  new Chart(document.getElementById('chart'), { type: 'bar', data: { labels: ['A', 'B'], datasets: [{ data: [1, 2] }] } });
+</script>
+</body>
+</html>

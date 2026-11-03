@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>2026년 사업 계획</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #1e293b; font-family: 'Malgun Gothic', sans-serif; }
+  .slide { width: 1280px; height: 720px; padding: 64px; margin: 0 auto 24px; background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%); color: #0f172a; overflow: hidden; position: relative; }
+  .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(135deg, #0f172a, #312e81); color: #f8fafc; }
+  .title { font-size: 64px; margin: 0 0 16px; }
+  .subtitle { font-size: 28px; margin: 0; color: #c7d2fe; }
+  .heading { font-size: 44px; margin: 0 0 32px; color: #1d4ed8; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { padding: 24px; border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(15, 23, 42, .12); }
+  .card.accent { background: #2563eb; color: #fff; }
+  .card h3 { margin: 0 0 8px; font-size: 26px; }
+  .card p { margin: 0; font-size: 20px; }
+  .points { margin-top: 32px; font-size: 24px; }
+  .two { display: flex; gap: 32px; }
+  .col { flex: 1; }
+  .photo { width: 100%; height: 480px; object-fit: cover; border-radius: 12px; }
+  .metrics { width: 100%; border-collapse: collapse; font-size: 26px; }
+  .metrics th, .metrics td { border: 2px solid #94a3b8; padding: 12px; }
+  .metrics th { background: #e2e8f0; }
+</style>
+</head>
+<body>
+  <!-- 생성 도구가 남긴 주석: 그대로 보존되어야 함 -->
+  <section class="slide cover" data-n="1">
+    <h1 class="title">2026년 사업 계획 발표</h1>
+    <p class="subtitle">전략기획팀 &middot; <b>핵심 요약</b> 포함</p>
+  </section>
+  <section class="slide" data-n="2">
+    <h2 class="heading">2장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 2.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 6% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="3">
+    <h2 class="heading">3장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 3.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 9% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="4">
+    <h2 class="heading">4장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 4.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 12% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="5">
+    <h2 class="heading">5장: 지표 표</h2>
+    <table class="metrics"><thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody><tr><td>매출</td><td>60억</td></tr><tr><td>성장률</td><td>5%</td></tr></tbody></table>
+  </section>
+  <section class="slide" data-n="6">
+    <h2 class="heading">6장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 6.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 18% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide two" data-n="7">
+    <div class="col"><h2 class="heading">7장: 사진 설명</h2><p>왼쪽 설명 문장입니다. 사진은 오른쪽에 있습니다.</p></div>
+    <div class="col"><img class="photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==" alt="제품 사진 7"></div>
+  </section>
+  <section class="slide" data-n="8">
+    <h2 class="heading">8장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 8.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 24% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="9">
+    <h2 class="heading">9장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 9.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 27% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="10">
+    <h2 class="heading">10장: 지표 표</h2>
+    <table class="metrics"><thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody><tr><td>매출</td><td>120억</td></tr><tr><td>성장률</td><td>10%</td></tr></tbody></table>
+  </section>
+  <section class="slide" data-n="11">
+    <h2 class="heading">11장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 11.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 33% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="12">
+    <h2 class="heading">12장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 12.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 36% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="13">
+    <h2 class="heading">13장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 13.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 39% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide two" data-n="14">
+    <div class="col"><h2 class="heading">14장: 사진 설명</h2><p>왼쪽 설명 문장입니다. 사진은 오른쪽에 있습니다.</p></div>
+    <div class="col"><img class="photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==" alt="제품 사진 14"></div>
+  </section>
+  <section class="slide" data-n="15">
+    <h2 class="heading">15장: 지표 표</h2>
+    <table class="metrics"><thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody><tr><td>매출</td><td>180억</td></tr><tr><td>성장률</td><td>15%</td></tr></tbody></table>
+  </section>
+  <section class="slide" data-n="16">
+    <h2 class="heading">16장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 16.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 48% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="17">
+    <h2 class="heading">17장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 17.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 51% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="18">
+    <h2 class="heading">18장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 18.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 54% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="19">
+    <h2 class="heading">19장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 19.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 57% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="20">
+    <h2 class="heading">20장: 지표 표</h2>
+    <table class="metrics"><thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody><tr><td>매출</td><td>240억</td></tr><tr><td>성장률</td><td>20%</td></tr></tbody></table>
+  </section>
+  <section class="slide two" data-n="21">
+    <div class="col"><h2 class="heading">21장: 사진 설명</h2><p>왼쪽 설명 문장입니다. 사진은 오른쪽에 있습니다.</p></div>
+    <div class="col"><img class="photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==" alt="제품 사진 21"></div>
+  </section>
+  <section class="slide" data-n="22">
+    <h2 class="heading">22장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 22.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 66% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="23">
+    <h2 class="heading">23장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 23.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 69% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="24">
+    <h2 class="heading">24장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 24.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 72% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+  <section class="slide" data-n="25">
+    <h2 class="heading">25장: 지표 표</h2>
+    <table class="metrics"><thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody><tr><td>매출</td><td>300억</td></tr><tr><td>성장률</td><td>25%</td></tr></tbody></table>
+  </section>
+  <section class="slide" data-n="26">
+    <h2 class="heading">26장: 주요 내용</h2>
+    <div class="cards">
+      <div class="card"><h3>첫째 항목</h3><p>설명 문장 <em>강조</em> 입니다.</p></div>
+      <div class="card accent"><h3>둘째 항목</h3><p>English mixed 문장 26.</p></div>
+      <div class="card"><h3>셋째 항목</h3><p>수치는 78% 입니다.</p></div>
+    </div>
+    <ul class="points"><li>요점 하나</li><li>요점 둘</li></ul>
+  </section>
+</body>
+</html>

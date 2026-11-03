@@ -1,0 +1,12 @@
+packages:
+  - apps/*
+  - packages/*
+
+# No dependency install scripts run. esbuild (via tsx) works from its prebuilt platform package.
+allowBuilds:
+  esbuild: false
+
+overrides:
+  # pptxgenjs lists image-size but its ES build never imports it. Pinned to the patched line so the
+  # advisories GHSA-5p2g-fcmc-qvqq and GHSA-w3rx-r6r6-pgpr leave the tree. Remove once pptxgenjs drops it.
+  image-size: '>=2.0.3'

