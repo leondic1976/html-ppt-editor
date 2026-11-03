@@ -292,7 +292,9 @@ describe('reporting', () => {
     expect(r.limits.length).toBeGreaterThan(0);
   });
 
-  it('survives pathological regex input quickly', async () => {
+  // The runner's timeout must exceed the assertion's limit, or a slow CI machine fails on
+  // the 5 s default before the 15 s limit below is ever checked.
+  it('survives pathological regex input quickly', { timeout: 20_000 }, async () => {
     const t = Date.now();
     await scan(
       `<script>${'_0x1a2b '.repeat(200000)}</script><style>${'url('.repeat(200000)}</style>`,
