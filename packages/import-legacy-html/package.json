@@ -13,6 +13,6 @@
     "@hps/document-core": "workspace:*",
     "@hps/security-scan": "workspace:*",
     "dompurify": "^3.4.17",
-    "parse5": "^8.0.1"
+    "parse5": "^8.1.0"
   }
 }
